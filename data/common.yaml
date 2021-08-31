@@ -1,0 +1,14 @@
+---
+example::group: 'example'
+example::install_dir: '/opt/example'
+example::install_method: 'package'
+example::manage_service: true
+example::manage_user: true
+example::manage_repo: true
+example::package_name: 'example'
+example::package_version: 'present'
+example::service_name: 'example'
+example::service_provider: 'systemd'
+example::service_ensure: 'running'
+example::user: 'example'
+...
