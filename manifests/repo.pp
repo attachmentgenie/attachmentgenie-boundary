@@ -3,6 +3,6 @@
 # @summary A short summary of the purpose of this class
 #
 # @example
-#   include example::repo
-class example::repo {
+#   include boundary::repo
+class boundary::repo {
 }

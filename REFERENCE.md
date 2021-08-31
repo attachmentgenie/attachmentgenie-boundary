@@ -8,34 +8,34 @@
 
 #### Public Classes
 
-* [`example`](#example): Class to install and configure example.  Use this module to install and configure example.
-* [`example::repo`](#examplerepo): A short summary of the purpose of this class
+* [`boundary`](#boundary): Class to install and configure boundary.  Use this module to install and configure boundary.
+* [`boundary::repo`](#boundaryrepo): A short summary of the purpose of this class
 
 #### Private Classes
 
-* `example::config`: Class to configure example.
-* `example::install`: Class to install example.
-* `example::service`: Class to manage the example service.
+* `boundary::config`: Class to configure boundary.
+* `boundary::install`: Class to install boundary.
+* `boundary::service`: Class to manage the boundary service.
 
 ## Classes
 
-### <a name="example"></a>`example`
+### <a name="boundary"></a>`boundary`
 
-Class to install and configure example.
+Class to install and configure boundary.
 
-Use this module to install and configure example.
+Use this module to install and configure boundary.
 
 #### Examples
 
 ##### Declaring the class
 
 ```puppet
-include ::example
+include ::boundary
 ```
 
 #### Parameters
 
-The following parameters are available in the `example` class:
+The following parameters are available in the `boundary` class:
 
 * [`archive_source`](#archive_source)
 * [`group`](#group)
@@ -55,7 +55,7 @@ The following parameters are available in the `example` class:
 
 Data type: `Optional[Stdlib::HTTPUrl]`
 
-Location of example binary release.
+Location of boundary binary release.
 
 Default value: ``undef``
 
@@ -63,37 +63,37 @@ Default value: ``undef``
 
 Data type: `String[1]`
 
-Group that owns example files.
+Group that owns boundary files.
 
 ##### <a name="install_dir"></a>`install_dir`
 
 Data type: `Stdlib::Absolutepath`
 
-Location of example binary release.
+Location of boundary binary release.
 
 ##### <a name="install_method"></a>`install_method`
 
 Data type: `Enum['archive','package']`
 
-How to install example.
+How to install boundary.
 
 ##### <a name="manage_repo"></a>`manage_repo`
 
 Data type: `Boolean`
 
-Manage the example repo.
+Manage the boundary repo.
 
 ##### <a name="manage_service"></a>`manage_service`
 
 Data type: `Boolean`
 
-Manage the example service.
+Manage the boundary service.
 
 ##### <a name="manage_user"></a>`manage_user`
 
 Data type: `Boolean`
 
-Manage example user and group.
+Manage boundary user and group.
 
 ##### <a name="package_name"></a>`package_name`
 
@@ -105,7 +105,7 @@ Name of package to install.
 
 Data type: `String[1]`
 
-Version of example to install.
+Version of boundary to install.
 
 ##### <a name="service_name"></a>`service_name`
 
@@ -129,9 +129,9 @@ The state of the service.
 
 Data type: `String[1]`
 
-User that owns example files.
+User that owns boundary files.
 
-### <a name="examplerepo"></a>`example::repo`
+### <a name="boundaryrepo"></a>`boundary::repo`
 
 A description of what this class does
 
@@ -140,6 +140,6 @@ A description of what this class does
 ##### 
 
 ```puppet
-include example::repo
+include boundary::repo
 ```
 

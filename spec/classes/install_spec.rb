@@ -1,5 +1,5 @@
 require 'spec_helper'
-describe 'example' do
+describe 'boundary' do
   on_supported_os.each do |os, facts|
     context "on #{os}" do
       let(:facts) { facts }
@@ -23,7 +23,7 @@ describe 'example' do
           }
         end
 
-        it { is_expected.to contain_archive('example archive').with_source('http://localhost/special.tar.gz') }
+        it { is_expected.to contain_archive('boundary archive').with_source('http://localhost/special.tar.gz') }
       end
 
       context 'with group set to myspecialgroup' do
@@ -34,49 +34,49 @@ describe 'example' do
           }
         end
 
-        it { is_expected.to contain_group('example').with_name('myspecialgroup') }
+        it { is_expected.to contain_group('boundary').with_name('myspecialgroup') }
       end
 
       context 'with group set to myspecialgroup and install_method set to archive' do
         let(:params) do
           {
             group: 'myspecialgroup',
-            install_dir: '/opt/example',
+            install_dir: '/opt/boundary',
             install_method: 'archive',
             manage_user: true,
           }
         end
 
-        it { is_expected.to contain_file('example install dir').with_group('myspecialgroup') }
-        it { is_expected.to contain_archive('example archive').with_group('myspecialgroup') }
+        it { is_expected.to contain_file('boundary install dir').with_group('myspecialgroup') }
+        it { is_expected.to contain_archive('boundary archive').with_group('myspecialgroup') }
       end
 
       context 'with group set to myspecialgroup and install_method set to archive and manage_user set to true' do
         let(:params) do
           {
             group: 'myspecialgroup',
-            install_dir: '/opt/example',
+            install_dir: '/opt/boundary',
             install_method: 'archive',
             manage_user: true,
           }
         end
 
-        it { is_expected.to contain_file('example install dir').with_group('myspecialgroup').that_requires('Group[myspecialgroup]') }
-        it { is_expected.to contain_archive('example archive').with_group('myspecialgroup') }
+        it { is_expected.to contain_file('boundary install dir').with_group('myspecialgroup').that_requires('Group[myspecialgroup]') }
+        it { is_expected.to contain_archive('boundary archive').with_group('myspecialgroup') }
       end
 
       context 'with group set to myspecialgroup and install_method set to archive and manage_user set to false' do
         let(:params) do
           {
             group: 'myspecialgroup',
-            install_dir: '/opt/example',
+            install_dir: '/opt/boundary',
             install_method: 'archive',
             manage_user: false,
           }
         end
 
-        it { is_expected.to contain_file('example install dir').with_group('myspecialgroup').that_requires(nil) }
-        it { is_expected.to contain_archive('example archive').with_group('myspecialgroup') }
+        it { is_expected.to contain_file('boundary install dir').with_group('myspecialgroup').that_requires(nil) }
+        it { is_expected.to contain_archive('boundary archive').with_group('myspecialgroup') }
       end
 
       context 'with install_dir set to /opt/special' do
@@ -87,10 +87,10 @@ describe 'example' do
           }
         end
 
-        it { is_expected.to contain_file('example install dir').with_path('/opt/special') }
-        it { is_expected.to contain_archive('example archive').with_creates('/opt/special/example') }
-        it { is_expected.to contain_archive('example archive').with_extract_path('/opt/special') }
-        it { is_expected.to contain_archive('example archive').that_requires('File[/opt/special]') }
+        it { is_expected.to contain_file('boundary install dir').with_path('/opt/special') }
+        it { is_expected.to contain_archive('boundary archive').with_creates('/opt/special/boundary') }
+        it { is_expected.to contain_archive('boundary archive').with_extract_path('/opt/special') }
+        it { is_expected.to contain_archive('boundary archive').that_requires('File[/opt/special]') }
       end
 
       context 'with install_dir set to /opt/special and manage_user set to true' do
@@ -99,53 +99,53 @@ describe 'example' do
             install_dir: '/opt/special',
             install_method: 'archive',
             manage_user: true,
-            user: 'example',
+            user: 'boundary',
           }
         end
 
-        it { is_expected.to contain_user('example').with_home('/opt/special') }
-        it { is_expected.to contain_file('example install dir').with_path('/opt/special').that_requires('User[example]') }
+        it { is_expected.to contain_user('boundary').with_home('/opt/special') }
+        it { is_expected.to contain_file('boundary install dir').with_path('/opt/special').that_requires('User[boundary]') }
       end
 
       context 'with install_method set to archive' do
         let(:params) do
           {
-            install_dir: '/opt/example',
+            install_dir: '/opt/boundary',
             install_method: 'archive',
-            package_name: 'example',
+            package_name: 'boundary',
           }
         end
 
-        it { is_expected.to contain_file('example install dir').that_comes_before('Archive[example archive]') }
-        it { is_expected.to contain_archive('example archive') }
-        it { is_expected.not_to contain_package('example') }
+        it { is_expected.to contain_file('boundary install dir').that_comes_before('Archive[boundary archive]') }
+        it { is_expected.to contain_archive('boundary archive') }
+        it { is_expected.not_to contain_package('boundary') }
       end
 
       context 'with install_method set to package' do
         let(:params) do
           {
-            install_dir: '/opt/example',
+            install_dir: '/opt/boundary',
             install_method: 'package',
-            package_name: 'example',
+            package_name: 'boundary',
           }
         end
 
-        it { is_expected.not_to contain_file('example install dir').that_comes_before('Archive[example archive]') }
-        it { is_expected.not_to contain_archive('example archive') }
-        it { is_expected.to contain_package('example') }
+        it { is_expected.not_to contain_file('boundary install dir').that_comes_before('Archive[boundary archive]') }
+        it { is_expected.not_to contain_archive('boundary archive') }
+        it { is_expected.to contain_package('boundary') }
       end
 
       context 'with manage_user set to true' do
         let(:params) do
           {
-            group: 'example',
+            group: 'boundary',
             manage_user: true,
-            user: 'example',
+            user: 'boundary',
           }
         end
 
-        it { is_expected.to contain_user('example') }
-        it { is_expected.to contain_group('example') }
+        it { is_expected.to contain_user('boundary') }
+        it { is_expected.to contain_group('boundary') }
       end
 
       context 'with manage_user set to false' do
@@ -155,8 +155,8 @@ describe 'example' do
           }
         end
 
-        it { is_expected.not_to contain_user('example') }
-        it { is_expected.not_to contain_group('example') }
+        it { is_expected.not_to contain_user('boundary') }
+        it { is_expected.not_to contain_group('boundary') }
       end
 
       context 'with package_name set to specialpackage' do
@@ -167,7 +167,7 @@ describe 'example' do
           }
         end
 
-        it { is_expected.to contain_package('example').with_name('specialpackage') }
+        it { is_expected.to contain_package('boundary').with_name('specialpackage') }
       end
 
       context 'with package_name set to specialpackage and manage_service set to true' do
@@ -176,23 +176,23 @@ describe 'example' do
             install_method: 'package',
             manage_service: true,
             package_name: 'specialpackage',
-            service_name: 'example',
+            service_name: 'boundary',
           }
         end
 
-        it { is_expected.to contain_package('example').with_name('specialpackage') }
+        it { is_expected.to contain_package('boundary').with_name('specialpackage') }
       end
 
       context 'with package_version set to 42.42.42' do
         let(:params) do
           {
             install_method: 'package',
-            package_name: 'example',
+            package_name: 'boundary',
             package_version: '42.42.42',
           }
         end
 
-        it { is_expected.to contain_package('example').with_ensure('42.42.42') }
+        it { is_expected.to contain_package('boundary').with_ensure('42.42.42') }
       end
 
       context 'with user set to myspecialuser' do
@@ -203,49 +203,49 @@ describe 'example' do
           }
         end
 
-        it { is_expected.to contain_user('example').with_name('myspecialuser') }
+        it { is_expected.to contain_user('boundary').with_name('myspecialuser') }
       end
 
       context 'with user set to myspecialuser and install_method set to archive' do
         let(:params) do
           {
-            install_dir: '/opt/example',
+            install_dir: '/opt/boundary',
             install_method: 'archive',
             manage_user: true,
             user: 'myspecialuser',
           }
         end
 
-        it { is_expected.to contain_file('example install dir').with_owner('myspecialuser') }
-        it { is_expected.to contain_archive('example archive').with_user('myspecialuser') }
+        it { is_expected.to contain_file('boundary install dir').with_owner('myspecialuser') }
+        it { is_expected.to contain_archive('boundary archive').with_user('myspecialuser') }
       end
 
       context 'with user set to myspecialuser and install_method set to archive and manage_user set to true' do
         let(:params) do
           {
-            install_dir: '/opt/example',
+            install_dir: '/opt/boundary',
             install_method: 'archive',
             manage_user: true,
             user: 'myspecialuser',
           }
         end
 
-        it { is_expected.to contain_file('example install dir').with_owner('myspecialuser').that_requires('User[myspecialuser]') }
-        it { is_expected.to contain_archive('example archive').with_user('myspecialuser') }
+        it { is_expected.to contain_file('boundary install dir').with_owner('myspecialuser').that_requires('User[myspecialuser]') }
+        it { is_expected.to contain_archive('boundary archive').with_user('myspecialuser') }
       end
 
       context 'with user set to myspecialuser and install_method set to archive and manage_user set to false' do
         let(:params) do
           {
-            install_dir: '/opt/example',
+            install_dir: '/opt/boundary',
             install_method: 'archive',
             manage_user: false,
             user: 'myspecialuser',
           }
         end
 
-        it { is_expected.to contain_file('example install dir').with_owner('myspecialuser').that_requires(nil) }
-        it { is_expected.to contain_archive('example archive').with_user('myspecialuser') }
+        it { is_expected.to contain_file('boundary install dir').with_owner('myspecialuser').that_requires(nil) }
+        it { is_expected.to contain_archive('boundary archive').with_user('myspecialuser') }
       end
     end
   end

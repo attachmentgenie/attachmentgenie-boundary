@@ -1,56 +1,56 @@
-# Class to install example.
+# Class to install boundary.
 #
 # @api private
-class example::install {
-  if $::example::manage_user {
-    user { 'example':
+class boundary::install {
+  if $::boundary::manage_user {
+    user { 'boundary':
       ensure => present,
-      home   => $::example::install_dir,
-      name   => $::example::user,
+      home   => $::boundary::install_dir,
+      name   => $::boundary::user,
     }
-    group { 'example':
+    group { 'boundary':
       ensure => present,
-      name   => $::example::group
+      name   => $::boundary::group
     }
   }
-  case $::example::install_method {
+  case $::boundary::install_method {
     'package': {
-      if $::example::manage_repo {
-        class { 'example::repo': }
+      if $::boundary::manage_repo {
+        class { 'boundary::repo': }
       }
-      package { 'example':
-        ensure => $::example::package_version,
-        name   => $::example::package_name,
+      package { 'boundary':
+        ensure => $::boundary::package_version,
+        name   => $::boundary::package_name,
       }
     }
     'archive': {
-      file { 'example install dir':
+      file { 'boundary install dir':
         ensure => directory,
-        group  => $::example::group,
-        owner  => $::example::user,
-        path   => $::example::install_dir,
+        group  => $::boundary::group,
+        owner  => $::boundary::user,
+        path   => $::boundary::install_dir,
       }
-      if $::example::manage_user {
-        File[$::example::install_dir] {
-          require => [Group['example'],User['example']],
+      if $::boundary::manage_user {
+        File[$::boundary::install_dir] {
+          require => [Group['boundary'],User['boundary']],
         }
       }
 
-      archive { 'example archive':
+      archive { 'boundary archive':
         cleanup      => true,
-        creates      => "${::example::install_dir}/example",
+        creates      => "${::boundary::install_dir}/boundary",
         extract      => true,
-        extract_path => $::example::install_dir,
-        group        => $::example::group,
-        path         => '/tmp/example.tar.gz',
-        source       => $::example::archive_source,
-        user         => $::example::user,
-        require      => File['example install dir']
+        extract_path => $::boundary::install_dir,
+        group        => $::boundary::group,
+        path         => '/tmp/boundary.tar.gz',
+        source       => $::boundary::archive_source,
+        user         => $::boundary::user,
+        require      => File['boundary install dir']
       }
 
     }
     default: {
-      fail("Installation method ${::example::install_method} not supported")
+      fail("Installation method ${::boundary::install_method} not supported")
     }
   }
 }

@@ -1,4 +1,4 @@
-# Class to configure example.
+# Class to configure boundary.
 #
 # @api private
-class example::config {}
+class boundary::config {}

@@ -1,12 +1,12 @@
-# attachmentgenie-example
+# attachmentgenie-boundary
 
-[![](https://img.shields.io/puppetforge/pdk-version/attachmentgenie/example.svg?style=popout)](https://forge.puppetlabs.com/attachmentgenie/example)
-[![](https://img.shields.io/puppetforge/v/attachmentgenie/example.svg?style=popout)](https://forge.puppetlabs.com/attachmentgenie/example)
-[![](https://img.shields.io/puppetforge/dt/attachmentgenie/example.svg?style=popout)](https://forge.puppetlabs.com/attachmentgenie/example)
-[![Spec Tests](https://github.com/attachmentgenie/attachmentgenie-example/actions/workflows/spec.yml/badge.svg)](https://github.com/attachmentgenie/attachmentgenie-example/actions/workflows/spec.yml)
-[![License](https://img.shields.io/github/license/attachmentgenie/attachmentgenie-example?stype=popout)](https://github.com/attachmentgenie/attachmentgenie-example/blob/master/LICENSE)
+[![](https://img.shields.io/puppetforge/pdk-version/attachmentgenie/boundary.svg?style=popout)](https://forge.puppetlabs.com/attachmentgenie/boundary)
+[![](https://img.shields.io/puppetforge/v/attachmentgenie/boundary.svg?style=popout)](https://forge.puppetlabs.com/attachmentgenie/boundary)
+[![](https://img.shields.io/puppetforge/dt/attachmentgenie/boundary.svg?style=popout)](https://forge.puppetlabs.com/attachmentgenie/boundary)
+[![Spec Tests](https://github.com/attachmentgenie/attachmentgenie-boundary/actions/workflows/spec.yml/badge.svg)](https://github.com/attachmentgenie/attachmentgenie-boundary/actions/workflows/spec.yml)
+[![License](https://img.shields.io/github/license/attachmentgenie/attachmentgenie-boundary?stype=popout)](https://github.com/attachmentgenie/attachmentgenie-boundary/blob/master/LICENSE)
 
-Deploy and configure attachmentgenie's example on a node.
+Deploy and configure HashiCorp Boundary on a node.
 
 - [Description](#description)
 - [Usage](#usage)
@@ -17,15 +17,15 @@ Deploy and configure attachmentgenie's example on a node.
 
 ## Description
 
-This project serves as my starter project
+Deploy and configure HashiCorp Boundary
 
 ## Usage
 
 All options and configuration can be done through interacting with the parameters
-on the main example class.
+on the main boundary class.
 These are now documented via [Puppet Strings](https://github.com/puppetlabs/puppet-strings)
 
-You can view example usage in [REFERENCE](REFERENCE.md).
+You can view boundary usage in [REFERENCE](REFERENCE.md).
 
 ## Reference
 

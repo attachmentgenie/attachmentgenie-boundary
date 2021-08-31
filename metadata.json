@@ -1,12 +1,12 @@
 {
-  "name": "attachmentgenie-example",
-  "version": "4.0.0",
+  "name": "attachmentgenie-boundary",
+  "version": "1.0.0",
   "author": "bram vogelaar <bram@attachmentgenie.com>",
-  "summary": "Setup example",
+  "summary": "Setup boundary",
   "license": "MIT",
-  "source": "https://github.com/attachmentgenie/attachmentgenie-example.git",
-  "project_page": "https://github.com/attachmentgenie/attachmentgenie-example",
-  "issues_url": "https://github.com/attachmentgenie/attachmentgenie-example/issues",
+  "source": "https://github.com/attachmentgenie/attachmentgenie-boundary.git",
+  "project_page": "https://github.com/attachmentgenie/attachmentgenie-boundary",
+  "issues_url": "https://github.com/attachmentgenie/attachmentgenie-boundary/issues",
   "dependencies": [
     {
       "name": "puppet/archive",
@@ -51,7 +51,7 @@
     }
   ],
   "tags": [
-    "example"
+    "boundary"
   ],
   "pdk-version": "2.2.0",
   "template-url": "https://github.com/puppetlabs/pdk-templates#2.2.0",
